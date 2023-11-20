@@ -16,11 +16,6 @@ Replace the environment variables with your desired settings. Assumptions will b
 - `LOCAL_LLM_API_KEY` - The API key to use for the server. If not set, the server will not require an API key.
 - `THREADS` - The number of threads to use. Default is `your CPU core count minus 1`.
 
-The following are only applicable to NVIDIA GPUs:
-
-- `GPU_LAYERS` - The number of layers to use on the GPU. Default is `0`.
-- `MAIN_GPU` - The GPU to use for the main model. Default is `0`.
-
 ### Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/)
