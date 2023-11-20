@@ -1,4 +1,4 @@
-# Local-LLM
+# DockerLLM
 
 - [Dockerhub](https://hub.docker.com/r/joshxt/local-llm/tags)
 - [GitHub](https://github.com/Josh-XT/Local-LLM)
@@ -42,8 +42,8 @@ The following are only applicable to NVIDIA GPUs:
 Modify the `THREADS` environment variable to your desired settings. Assumptions will be made on all of these values if you choose to accept the defaults.
 
 ```bash
-docker pull joshxt/local-llm:cpu
-docker run -d --name local-llm -p 8091:8091 joshxt/local-llm:cpu -e THREADS="10" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
+docker pull manishkumart/dockerllm:cpu  
+docker run -d --name local-llm -p 8091:8091 manishkumart/dockerllm:cpu -e THREADS="10" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
 ```
 
 ### Run with NVIDIA GPU support
@@ -53,8 +53,8 @@ If you're using an NVIDIA GPU, you can use the CUDA version of the server. You m
 Modify the `GPU_LAYERS`, `MAIN_GPU`, and `THREADS` environment variables to your desired settings. Assumptions will be made on all of these values if you choose to accept the defaults.
 
 ```bash
-docker pull joshxt/local-llm:cuda
-docker run -d --name local-llm -p 8091:8091 --gpus all joshxt/local-llm:cuda -e THREADS="10" -e GPU_LAYERS="20" -e MAIN_GPU="0" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
+docker pull manishkumart/dockerllm:cuda
+docker run -d --name local-llm -p 8091:8091 --gpus all manishkumart/dockerllm:cuda -e THREADS="10" -e GPU_LAYERS="20" -e MAIN_GPU="0" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
 ```
 
 ## Run with Docker Compose
@@ -81,12 +81,4 @@ docker-compose -f docker-compose-cuda.yml up
 
 OpenAI Style endpoints available at `http://<YOUR LOCAL IP ADDRESS>:8091/v1` by default. Documentation can be accessed at that <http://localhost:8091> when the server is running. There are examples for each of the endpoints in the [Examples Jupyter Notebook](examples.ipynb).
 
-## Shout Outs
 
-- [ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp) - For constantly improving the ability for anyone to run local models. It is one of my favorite and most exciting projects on GitHub.
-- [abetlen/llama-cpp-python](https://github.com/abetlen/llama-cpp-python) - For making it easy to extend the functionality of llama.cpp in Python.
-- [TheBloke](https://huggingface.co/TheBloke) - For helping enable the ability to run local models by quantizing them and sharing them with a great readme on how to use them in every repository.
-- [Meta](https://meta.com) - For the absolutely earth shattering open source releases of the LLaMa models and all other contributions they have made to Open Source.
-- [OpenAI](https://openai.com/) - For setting good standards for endpoints and making great models.
-- [Hugging Face](https://huggingface.co/) - For making it easy to use and share models.
-- As much as I hate to do it, I can't list all of the amazing people building and fine tuning local models, but you know who you are. Thank you for all of your hard work and contributions to the community!
