@@ -17,7 +17,6 @@ Local-LLM is a [llama.cpp](https://github.com/ggerganov/llama.cpp) server in Doc
     - [Run without NVIDIA GPU support with Docker Compose](#run-without-nvidia-gpu-support-with-docker-compose)
     - [Run with NVIDIA GPU support with Docker Compose](#run-with-nvidia-gpu-support-with-docker-compose)
   - [OpenAI Style Endpoint Usage](#openai-style-endpoint-usage)
-  - [Shout Outs](#shout-outs)
 
 ## Run with Docker
 
