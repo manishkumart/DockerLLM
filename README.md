@@ -5,18 +5,6 @@
 
 Local-LLM is a [llama.cpp](https://github.com/ggerganov/llama.cpp) server in Docker with OpenAI Style Endpoints that allows you to send the model name as the name of the model as it appears in the model list, for example `Mistral-7B-OpenOrca`. It will automatically download the model from Hugging Face if it isn't already downloaded and configure the server for you. It automatically configures the server based on your CPU, RAM, and GPU. It is designed to be as easy as possible to get started with running local models.
 
-## Table of Contents 📖
-
-- [DockerLLM](#local-llm)
-  - [Table of Contents 📖](#table-of-contents-)
-  - [Run with Docker](#run-with-docker)
-    - [Prerequisites](#prerequisites)
-    - [Run without NVIDIA GPU support](#run-without-nvidia-gpu-support)
-    - [Run with NVIDIA GPU support](#run-with-nvidia-gpu-support)
-  - [Run with Docker Compose](#run-with-docker-compose)
-    - [Run without NVIDIA GPU support with Docker Compose](#run-without-nvidia-gpu-support-with-docker-compose)
-    - [Run with NVIDIA GPU support with Docker Compose](#run-with-nvidia-gpu-support-with-docker-compose)
-  - [OpenAI Style Endpoint Usage](#openai-style-endpoint-usage)
 
 ## Run with Docker
 
@@ -36,7 +24,7 @@ The following are only applicable to NVIDIA GPUs:
 
 - [Docker](https://docs.docker.com/get-docker/)
 
-### Run without NVIDIA GPU support
+### Run with CPU support
 
 Modify the `THREADS` environment variable to your desired settings. Assumptions will be made on all of these values if you choose to accept the defaults.
 
@@ -45,16 +33,6 @@ docker pull mainshkumar/docker-llm:cpu
 docker run -d --name docker-llm -p 8091:8091 mainshkumar/docker-llm:cpu -e THREADS="10" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
 ```
 
-### Run with NVIDIA GPU support
-
-If you're using an NVIDIA GPU, you can use the CUDA version of the server. You must have the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) installed if using NVIDIA GPU.
-
-Modify the `GPU_LAYERS`, `MAIN_GPU`, and `THREADS` environment variables to your desired settings. Assumptions will be made on all of these values if you choose to accept the defaults.
-
-```bash
-docker pull  mainshkumar/docker-llm:cuda
-docker run -d --name docker-llm -p 8091:8091 --gpus all  mainshkumar/docker-llm:cuda -e THREADS="10" -e GPU_LAYERS="20" -e MAIN_GPU="0" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
-```
 
 ## Run with Docker Compose
 
