@@ -7,7 +7,7 @@ import os
 import jwt
 
 
-app = FastAPI(title="Local-LLM Server", docs_url="/")
+app = FastAPI(title="DockerLLM", docs_url="/")
 
 
 def verify_api_key(authorization: str = Header(None)):
