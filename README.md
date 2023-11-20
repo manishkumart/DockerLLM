@@ -1,6 +1,6 @@
 # DockerLLM
 
-- [Dockerhub][https://hub.docker.com/r/mainshkumar/docker-llm/tags]
+- [Dockerhub](https://hub.docker.com/r/mainshkumar/docker-llm/tags)
 
 
 
