@@ -42,8 +42,8 @@ The following are only applicable to NVIDIA GPUs:
 Modify the `THREADS` environment variable to your desired settings. Assumptions will be made on all of these values if you choose to accept the defaults.
 
 ```bash
-docker pull joshxt/local-llm:cpu
-docker run -d --name local-llm -p 8091:8091 joshxt/local-llm:cpu -e THREADS="10" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
+docker pull manishkumart/dockerllm:cpu  
+docker run -d --name local-llm -p 8091:8091 manishkumart/dockerllm:cpu -e THREADS="10" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
 ```
 
 ### Run with NVIDIA GPU support
@@ -53,8 +53,8 @@ If you're using an NVIDIA GPU, you can use the CUDA version of the server. You m
 Modify the `GPU_LAYERS`, `MAIN_GPU`, and `THREADS` environment variables to your desired settings. Assumptions will be made on all of these values if you choose to accept the defaults.
 
 ```bash
-docker pull joshxt/local-llm:cuda
-docker run -d --name local-llm -p 8091:8091 --gpus all joshxt/local-llm:cuda -e THREADS="10" -e GPU_LAYERS="20" -e MAIN_GPU="0" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
+docker pull manishkumart/dockerllm:cuda
+docker run -d --name local-llm -p 8091:8091 --gpus all manishkumart/dockerllm:cuda -e THREADS="10" -e GPU_LAYERS="20" -e MAIN_GPU="0" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
 ```
 
 ## Run with Docker Compose
