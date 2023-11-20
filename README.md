@@ -1,6 +1,6 @@
 # DockerLLM
 
-- [Dockerhub]([https://hub.docker.com/r/joshxt/local-llm/tags](https://hub.docker.com/r/mainshkumar/docker-llm/tags))
+- [Dockerhub]([https://hub.docker.com/r/mainshkumar/docker-llm/tags])
 
 
 Local-LLM is a [llama.cpp](https://github.com/ggerganov/llama.cpp) server in Docker with OpenAI Style Endpoints that allows you to send the model name as the name of the model as it appears in the model list, for example `Mistral-7B-OpenOrca`. It will automatically download the model from Hugging Face if it isn't already downloaded and configure the server for you. It automatically configures the server based on your CPU, RAM, and GPU. It is designed to be as easy as possible to get started with running local models.
