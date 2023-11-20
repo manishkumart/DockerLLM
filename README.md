@@ -7,7 +7,7 @@ Local-LLM is a [llama.cpp](https://github.com/ggerganov/llama.cpp) server in Doc
 
 ## Table of Contents 📖
 
-- [Local-LLM](#local-llm)
+- [DockerLLM](#local-llm)
   - [Table of Contents 📖](#table-of-contents-)
   - [Run with Docker](#run-with-docker)
     - [Prerequisites](#prerequisites)
@@ -43,7 +43,7 @@ Modify the `THREADS` environment variable to your desired settings. Assumptions 
 
 ```bash
 docker pull manishkumart/dockerllm:cpu  
-docker run -d --name local-llm -p 8091:8091 manishkumart/dockerllm:cpu -e THREADS="10" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
+docker run -d --name docker-llm -p 8091:8091 manishkumart/dockerllm:cpu -e THREADS="10" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
 ```
 
 ### Run with NVIDIA GPU support
@@ -54,7 +54,7 @@ Modify the `GPU_LAYERS`, `MAIN_GPU`, and `THREADS` environment variables to your
 
 ```bash
 docker pull manishkumart/dockerllm:cuda
-docker run -d --name local-llm -p 8091:8091 --gpus all manishkumart/dockerllm:cuda -e THREADS="10" -e GPU_LAYERS="20" -e MAIN_GPU="0" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
+docker run -d --name docker-llm -p 8091:8091 --gpus all manishkumart/dockerllm:cuda -e THREADS="10" -e GPU_LAYERS="20" -e MAIN_GPU="0" -e LOCAL_LLM_API_KEY="" -v ./models:/app/models
 ```
 
 ## Run with Docker Compose
